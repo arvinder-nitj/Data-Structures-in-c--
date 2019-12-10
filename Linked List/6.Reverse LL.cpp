@@ -87,9 +87,20 @@ void ReverseItr(node *&head)
     head=pre;
 }
 
-void ReverseRec(node *&head)
+node* ReverseRec(node *&head)
 {
+    //base case : smallest LL : 1 node
 
+    //base case
+    if(head->next==nullptr|| head==nullptr)
+        return head;
+
+    //Rec case
+    node *tempHead=ReverseRec(head->next);
+    node *current=head;
+    current->next->next=current;
+    current->next=nullptr;
+    return tempHead;
 }
 
 int main()
@@ -103,6 +114,9 @@ int main()
     cout<<start1;
 
     ReverseItr(start1);
+    cout<<start1;
+
+   start1=ReverseRec(start1);
     cout<<start1;
 
     return 0;
