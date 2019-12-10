@@ -89,7 +89,10 @@ int main()
     cin>>start1;
     cout<<start1;
 
-
+	if(detectCycle(start1))
+		cout<<"\n Cycle present ";
+	else
+		cout<<"\n No Cycle";
 
     return 0;
 }
